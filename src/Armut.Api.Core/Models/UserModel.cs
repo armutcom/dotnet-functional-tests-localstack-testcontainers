@@ -10,6 +10,6 @@
 
         public string Email { get; set; }
 
-        public string ProfilePicture { get; set; }
+        public string ProfilePictureUrl { get; set; }
     }
 }

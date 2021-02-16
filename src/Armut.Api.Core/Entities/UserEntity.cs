@@ -16,7 +16,7 @@ namespace Armut.Api.Core.Entities
 
         public string Email { get; set; }
 
-        public string ProfilePicture { get; set; }
+        public string ProfilePictureUrl { get; set; }
 
         public DateTime CreateDate { get; set; }
     }

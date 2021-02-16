@@ -8,6 +8,6 @@ namespace Armut.Api.Core.Contracts
     {
         Task<JobModel> AddJob(AddJobModel addJobModel, CancellationToken token = default);
 
-        Task<JobModel> GetJobById(int jobId, CancellationToken cancellationToken);
+        Task<JobModel> GetJobById(int jobId, CancellationToken token = default);
     }
 }
