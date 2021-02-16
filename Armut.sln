@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F634082-0CFC-4B33-988A-DB3DA3B4E77C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D99FD148-CF21-4EF6-A6EE-3329D00206A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api", "src\Armut.Api\Armut.Api.csproj", "{20C24F33-68AD-49A4-8038-87465A398448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core", "src\Armut.Api.Core\Armut.Api.Core.csproj", "{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core.Tests", "tests\Armut.Api.Core.Tests\Armut.Api.Core.Tests.csproj", "{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core.IntegrationTests", "tests\Armut.Api.Core.IntegrationTests\Armut.Api.Core.IntegrationTests.csproj", "{44016949-9375-49F6-8AC1-0BA67AFBDB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.FunctionalTests", "tests\Armut.Api.FunctionalTests\Armut.Api.FunctionalTests.csproj", "{3CEB0FE7-FFF1-4142-8974-328FA29E914C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20C24F33-68AD-49A4-8038-87465A398448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C24F33-68AD-49A4-8038-87465A398448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C24F33-68AD-49A4-8038-87465A398448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C24F33-68AD-49A4-8038-87465A398448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44016949-9375-49F6-8AC1-0BA67AFBDB8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44016949-9375-49F6-8AC1-0BA67AFBDB8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44016949-9375-49F6-8AC1-0BA67AFBDB8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44016949-9375-49F6-8AC1-0BA67AFBDB8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CEB0FE7-FFF1-4142-8974-328FA29E914C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEB0FE7-FFF1-4142-8974-328FA29E914C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEB0FE7-FFF1-4142-8974-328FA29E914C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEB0FE7-FFF1-4142-8974-328FA29E914C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20C24F33-68AD-49A4-8038-87465A398448} = {D99FD148-CF21-4EF6-A6EE-3329D00206A9}
+		{43978A0C-1974-4AE0-BF45-0E3BF4688B8A} = {D99FD148-CF21-4EF6-A6EE-3329D00206A9}
+		{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
+		{44016949-9375-49F6-8AC1-0BA67AFBDB8D} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
+		{3CEB0FE7-FFF1-4142-8974-328FA29E914C} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6ED230F2-4475-4874-A63D-43EA8D7AA535}
+	EndGlobalSection
+EndGlobal
