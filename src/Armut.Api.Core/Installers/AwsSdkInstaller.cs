@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Amazon;
 using Amazon.Extensions.NETCore.Setup;
+using Amazon.Lambda;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Transfer;
+using Amazon.SimpleNotificationService;
 using Armut.Api.Core.Contracts;
 using LocalStack.Client.Extensions;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,8 @@ namespace Armut.Api.Core.Installers
             services.AddDefaultAWSOptions(GetAwsOptions(configuration));
             services.AddLocalStack(configuration);
             services.AddAwsService<IAmazonS3>();
+            services.AddAwsService<IAmazonSimpleNotificationService>();
+            services.AddAwsService<IAmazonLambda>();
             services.AddSingleton<ITransferUtility>(provider =>
             {
                 var s3Client = provider.GetService<IAmazonS3>();

@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Armut.Api.Core;
 using Armut.Api.Core.Installers;
 using Armut.Api.Core.Models;
+using Armut.Api.Options;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 
@@ -27,7 +28,7 @@ namespace Armut.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.Configure<ArmutEventOptions>(options => Configuration.GetSection("ArmutEvents"));
             services.AddControllers()
                 .AddFluentValidation(configuration =>
                 {

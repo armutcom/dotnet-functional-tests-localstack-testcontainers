@@ -10,9 +10,9 @@ using Xunit;
 namespace Armut.Api.Core.IntegrationTests
 {
     [Collection(nameof(IntegrationTestCollection))]
-    public class UserTests : BaseTest
+    public class UserServiceTests : BaseTest
     {
-        public UserTests(IntegrationTestFixture integrationTestFixture) 
+        public UserServiceTests(IntegrationTestFixture integrationTestFixture) 
             : base(integrationTestFixture)
         {
         }

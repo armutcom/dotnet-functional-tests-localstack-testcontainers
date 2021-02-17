@@ -58,10 +58,10 @@ namespace Armut.Tests.Common.Fixtures
 
         private async Task CreateS3BucketAsync(IAmazonS3 amazonS3Client, string bucketName)
         {
-            bool bucketExists = await amazonS3Client.DoesS3BucketExistAsync(bucketName);
+            //bool bucketExists = await amazonS3Client.DoesS3BucketExistAsync(bucketName);
 
-            if (!bucketExists)
-            {
+            //if (!bucketExists)
+            //{
                 await amazonS3Client.PutBucketAsync(new PutBucketRequest
                 {
                     BucketName = bucketName,
@@ -72,7 +72,7 @@ namespace Armut.Tests.Common.Fixtures
                     CannedACL = S3CannedACL.PublicRead,
                     BucketName = bucketName
                 });
-            }
+            //}
         }
     }
 }

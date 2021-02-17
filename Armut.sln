@@ -7,17 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F634082
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D99FD148-CF21-4EF6-A6EE-3329D00206A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api", "src\Armut.Api\Armut.Api.csproj", "{20C24F33-68AD-49A4-8038-87465A398448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Api", "src\Armut.Api\Armut.Api.csproj", "{20C24F33-68AD-49A4-8038-87465A398448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core", "src\Armut.Api.Core\Armut.Api.Core.csproj", "{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Api.Core", "src\Armut.Api.Core\Armut.Api.Core.csproj", "{43978A0C-1974-4AE0-BF45-0E3BF4688B8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core.Tests", "tests\Armut.Api.Core.Tests\Armut.Api.Core.Tests.csproj", "{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Api.Core.Tests", "tests\Armut.Api.Core.Tests\Armut.Api.Core.Tests.csproj", "{1F5DC2A0-3DD9-496D-AEDF-4ACE165A234D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.Core.IntegrationTests", "tests\Armut.Api.Core.IntegrationTests\Armut.Api.Core.IntegrationTests.csproj", "{44016949-9375-49F6-8AC1-0BA67AFBDB8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Api.Core.IntegrationTests", "tests\Armut.Api.Core.IntegrationTests\Armut.Api.Core.IntegrationTests.csproj", "{44016949-9375-49F6-8AC1-0BA67AFBDB8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Api.FunctionalTests", "tests\Armut.Api.FunctionalTests\Armut.Api.FunctionalTests.csproj", "{3CEB0FE7-FFF1-4142-8974-328FA29E914C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Api.FunctionalTests", "tests\Armut.Api.FunctionalTests\Armut.Api.FunctionalTests.csproj", "{3CEB0FE7-FFF1-4142-8974-328FA29E914C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Armut.Tests.Common", "tests\Armut.Tests.Common\Armut.Tests.Common.csproj", "{903195EE-83F3-410B-8893-5585D21C1692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.Tests.Common", "tests\Armut.Tests.Common\Armut.Tests.Common.csproj", "{903195EE-83F3-410B-8893-5585D21C1692}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.EventProcessor", "src\Armut.EventProcessor\Armut.EventProcessor.csproj", "{6CC84EBB-ACB9-499E-9F34-505BA7BEF716}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Armut.EventProcessor.Tests", "tests\Armut.EventProcessor.Tests\Armut.EventProcessor.Tests.csproj", "{5C516121-A382-4169-8180-A1DF43CD6559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,14 @@ Global
 		{903195EE-83F3-410B-8893-5585D21C1692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{903195EE-83F3-410B-8893-5585D21C1692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{903195EE-83F3-410B-8893-5585D21C1692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC84EBB-ACB9-499E-9F34-505BA7BEF716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC84EBB-ACB9-499E-9F34-505BA7BEF716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC84EBB-ACB9-499E-9F34-505BA7BEF716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC84EBB-ACB9-499E-9F34-505BA7BEF716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C516121-A382-4169-8180-A1DF43CD6559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C516121-A382-4169-8180-A1DF43CD6559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C516121-A382-4169-8180-A1DF43CD6559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C516121-A382-4169-8180-A1DF43CD6559}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +72,8 @@ Global
 		{44016949-9375-49F6-8AC1-0BA67AFBDB8D} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
 		{3CEB0FE7-FFF1-4142-8974-328FA29E914C} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
 		{903195EE-83F3-410B-8893-5585D21C1692} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
+		{6CC84EBB-ACB9-499E-9F34-505BA7BEF716} = {D99FD148-CF21-4EF6-A6EE-3329D00206A9}
+		{5C516121-A382-4169-8180-A1DF43CD6559} = {0F634082-0CFC-4B33-988A-DB3DA3B4E77C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ED230F2-4475-4874-A63D-43EA8D7AA535}

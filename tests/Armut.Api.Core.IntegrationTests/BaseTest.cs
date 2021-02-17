@@ -22,6 +22,7 @@ namespace Armut.Api.Core.IntegrationTests
             Seeder.Seed(ArmutContext);
 
             UserService = ServiceProvider.GetRequiredService<IUserService>();
+            EventService = ServiceProvider.GetRequiredService<IEventService>();
         }
 
         protected IConfiguration Configuration { get; }
@@ -31,5 +32,7 @@ namespace Armut.Api.Core.IntegrationTests
         protected ArmutContext ArmutContext { get; }
 
         protected IUserService UserService { get; }
+
+        protected IEventService EventService { get; }
     }
 }

@@ -1,0 +1,36 @@
+service: processor-event
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    debug: true
+    host: http://localhost
+    stages:
+      - local
+    edgePort: 4566
+  stages:
+    - local
+    - prod
+
+provider:
+  name: aws
+  runtime: dotnetcore3.1
+  region: eu-central-1
+  stackName: processor-lambda
+  stage: ${opt:stage, 'local'}
+
+package:
+  individually: true
+
+functions:
+  processor:
+    handler: Armut.EventProcessor::Armut.EventProcessor.Function::FunctionHandler
+    package:
+      artifact: artifact/processor-lambda-csharp.zip
+    environment:
+      ConnectionStrings__Database: ${env:CONN_STR}
+      DOCKER_GATEWAY_HOST: ${env:DOCKER_GATEWAY_HOST}
+    events:
+      - sns: dispatch

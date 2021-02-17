@@ -5,11 +5,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Amazon.S3;
 using Amazon.S3.Model;
+using Amazon.SimpleNotificationService.Model;
 using Microsoft.AspNetCore.Mvc;
 using Armut.Api.Core.Contracts;
 using Armut.Api.Core.Models;
+using Armut.Api.Core.Models.Events;
+using Armut.Api.Options;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 
 namespace Armut.Api.Controllers
 {
@@ -18,12 +22,16 @@ namespace Armut.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IEventService _eventService;
+        private readonly ArmutEventOptions _armutEventOptions;
         private readonly IAmazonS3 _amazonS3;
         private readonly IMapper _mapper;
 
-        public UserController(IUserService userService, IAmazonS3 amazonS3, IMapper mapper)
+        public UserController(IUserService userService, IEventService eventService, IOptions<ArmutEventOptions> eventOptions, IAmazonS3 amazonS3, IMapper mapper)
         {
             _userService = userService;
+            _eventService = eventService;
+            _armutEventOptions = new ArmutEventOptions() {SnsTopic = "arn:aws:sns:eu-central-1:000000000000:dispatch"};
             _amazonS3 = amazonS3;
             _mapper = mapper;
         }
@@ -56,10 +64,18 @@ namespace Armut.Api.Controllers
                 }
             }
 
+
             var addUserModel = _mapper.Map<AddUserModel>(addUserViewModel);
             addUserModel.ProfilePictureUrl = imgName;
 
             UserModel userModel = await _userService.AddUser(addUserModel, cancellationToken);
+
+            PublishResponse publishResponse = await _eventService.PublishEvent(new UserCreatedEvent()
+            {
+                Payload = userModel, 
+                CreateDate = DateTime.Now,
+                Sender = $"Armut.Api-{nameof(UserController)}.{nameof(AddUser)}"
+            }, _armutEventOptions.SnsTopic, cancellationToken);
 
             return CreatedAtAction("GetUser", new {user_id = userModel.Id}, userModel);
         }

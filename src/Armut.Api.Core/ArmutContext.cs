@@ -20,5 +20,7 @@ namespace Armut.Api.Core
         }
 
         public DbSet<UserEntity> Users { get; set; }
+
+        public DbSet<EventEntity> EventEntities { get; set; }
     }
 }

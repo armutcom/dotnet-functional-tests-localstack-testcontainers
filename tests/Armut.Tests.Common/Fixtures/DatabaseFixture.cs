@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DotNet.Testcontainers.Containers.Builders;
 using DotNet.Testcontainers.Containers.Configurations.Databases;
 using DotNet.Testcontainers.Containers.Modules;
@@ -15,7 +16,7 @@ namespace Armut.Tests.Common.Fixtures
         public DatabaseFixture()
         {
             var databaseBuilder = new TestcontainersBuilder<PostgreSqlTestcontainer>()
-                .WithName("postgres-integration")
+                .WithName($"postgres-integration-{DateTime.Now.Ticks}")
                 .WithCleanUp(true)
                 .WithDatabase(new PostgreSqlTestcontainerConfiguration("postgres:12.6")
                 {
@@ -27,7 +28,7 @@ namespace Armut.Tests.Common.Fixtures
                 .WithEnvironment("DOCKER_GATEWAY_HOST", "172.17.0.1");
 
             var pgadminTestContainerBuilder = new TestcontainersBuilder<TestcontainersContainer>()
-                .WithName("pgadmin4-integration")
+                .WithName($"pgadmin4-integration-{DateTime.Now.Ticks}")
                 .WithImage("dpage/pgadmin4:4.30")
                 .WithCleanUp(true)
                 .WithEnvironment("PGADMIN_DEFAULT_EMAIL", "pgadmin4@pgadmin.org")
