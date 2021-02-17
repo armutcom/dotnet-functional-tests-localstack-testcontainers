@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNet.Testcontainers.Containers.Builders;
@@ -19,9 +18,9 @@ namespace Armut.Tests.Common.Fixtures
             string dockerFileDirectory = Path.Combine(slnDirectory.FullName, "src");
 
             var functionDeployerBuilder = new ImageFromDockerfileBuilder()
-                .WithName("event-processor-deployer")
-                .WithDockerfileDirectory(dockerFileDirectory)
-                .WithDeleteIfExists(true);
+                                          .WithName("event-processor-deployer")
+                                          .WithDockerfileDirectory(dockerFileDirectory)
+                                          .WithDeleteIfExists(false);
 
             string result = functionDeployerBuilder.Build().GetAwaiter().GetResult();
 

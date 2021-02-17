@@ -7,11 +7,23 @@ ENV WAITFORIT_VERSION="v2.4.1"
 RUN curl -o /usr/local/bin/waitforit -sSL https://github.com/maxcnunes/waitforit/releases/download/$WAITFORIT_VERSION/waitforit-linux_amd64 \
     && chmod +x /usr/local/bin/waitforit
 
-RUN npm install -g serverless
+RUN npm install -g serverless@2.2.0
 RUN dotnet tool install --global Amazon.Lambda.Tools --version 3.3.1 && dotnet tool install --global LocalStack.AwsLocal --version 1.3.0
 ENV PATH="/root/.dotnet/tools:${PATH}" 
 
+RUN mkdir -p /usr/tempprojs && mkdir -p /usr/tempprojs/Armut.EventProcessor && mkdir -p /usr/tempprojs/Armut.Api.Core
+COPY Armut.EventProcessor/Armut.EventProcessor.csproj /usr/tempprojs/Armut.EventProcessor
+COPY Armut.Api.Core/Armut.Api.Core.csproj /usr/tempprojs/Armut.Api.Core
+WORKDIR /usr/tempprojs/Armut.EventProcessor
+RUN dotnet restore
+
+WORKDIR /
+
 RUN mkdir -p /usr/src/Armut.EventProcessor
+WORKDIR /usr/src/Armut.EventProcessor
+RUN npm install serverless-localstack
+
+WORKDIR /
 
 COPY Armut.EventProcessor/Armut.EventProcessor.csproj /usr/src/Armut.EventProcessor/
 COPY Armut.EventProcessor/Function.cs /usr/src/Armut.EventProcessor/
@@ -21,9 +33,6 @@ COPY . /usr/src/
 
 WORKDIR /usr/src/Armut.EventProcessor
 
-RUN npm install serverless-localstack
-
-RUN dotnet restore
 RUN dotnet lambda package --configuration Release --framework netcoreapp3.1 --output-package artifact/processor-lambda-csharp.zip
 RUN chmod +x ./replace-localstack.sh
 
